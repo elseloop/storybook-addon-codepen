@@ -4,6 +4,7 @@ import { styled } from '@storybook/theming';
 const Svg = styled.svg({
   fill: 'currentColor',
   left: 'calc(50% - 7px)',
+  pointerEvents: 'none',
   position: 'absolute',
   top: 'calc(50% - 7px)',
   zIndex: 0,
