@@ -10,7 +10,7 @@ Open a pen on Codepen with the click of a button, pre-filled with your story’s
 In the root directory of your Storybook project, run either
 
 ```bash
-npm i https://github.com/elseloop/storybook-addon-codepen
+npm i -D https://github.com/elseloop/storybook-addon-codepen
 ```
 
 or
