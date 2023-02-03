@@ -1,92 +1,35 @@
-# Storybook Addon Sidebar Icons
-Add custom icons to your stories.
+![story-pen](https://user-images.githubusercontent.com/1466832/216483536-990da991-6fde-4242-8fae-c33017fa8b11.png)
 
-### Development scripts
+# Storybook Addon Codepen
 
-- `yarn start` runs babel in watch mode and starts Storybook
-- `yarn build` build and package your addon code
+Open a pen on Codepen with the click of a button, pre-filled with your story’s HTML and CSS.
 
-### Switch from TypeScript to JavaScript
+![sb-addon-cp](https://user-images.githubusercontent.com/1466832/216485955-229d615f-67aa-4c81-ad0e-eb5bf1ae66cf.gif)
 
-Don't want to use TypeScript? We offer a handy eject command: `yarn eject-ts`
-
-This will convert all code to JS. It is a destructive process, so we recommended running this before you start writing any code.
-
-## What's included?
-
-![Demo](https://user-images.githubusercontent.com/42671/107857205-e7044380-6dfa-11eb-8718-ad02e3ba1a3f.gif)
-
-The addon code lives in `src`. It demonstrates all core addon related concepts. The three [UI paradigms](https://storybook.js.org/docs/react/addons/addon-types#ui-based-addons)
-
-- `src/Tool.js`
-- `src/Panel.js`
-- `src/Tab.js`
-
-Which, along with the addon itself, are registered in `src/preset/manager.js`.
-
-Managing State and interacting with a story:
-
-- `src/withGlobals.js` & `src/Tool.js` demonstrates how to use `useGlobals` to manage global state and modify the contents of a Story.
-- `src/withRoundTrip.js` & `src/Panel.js` demonstrates two-way communication using channels.
-- `src/Tab.js` demonstrates how to use `useParameter` to access the current story's parameters.
-
-Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/preset/manager.js` and `src/preset/preview.js` accordingly.
-
-Lastly, configure you addon name in `src/constants.js`.
-
-### Metadata
-
-Storybook addons are listed in the [catalog](https://storybook.js.org/addons) and distributed via npm. The catalog is populated by querying npm's registry for Storybook-specific metadata in `package.json`. This project has been configured with sample data. Learn more about available options in the [Addon metadata docs](https://storybook.js.org/docs/react/addons/addon-catalog#addon-metadata).
-
-## Release Management
-
-### Setup
-
-This project is configured to use [auto](https://github.com/intuit/auto) for release management. It generates a changelog and pushes it to both GitHub and npm. Therefore, you need to configure access to both:
-
-- [`NPM_TOKEN`](https://docs.npmjs.com/creating-and-viewing-access-tokens#creating-access-tokens) Create a token with both _Read and Publish_ permissions.
-- [`GH_TOKEN`](https://github.com/settings/tokens) Create a token with the `repo` scope.
-
-Then open your `package.json` and edit the following fields:
-
-- `name`
-- `author`
-- `repository`
-
-#### Local
-
-To use `auto` locally create a `.env` file at the root of your project and add your tokens to it:
+## Installation
+In the root directory of your Storybook project, run either
 
 ```bash
-GH_TOKEN=<value you just got from GitHub>
-NPM_TOKEN=<value you just got from npm>
+npm i https://github.com/elseloop/storybook-addon-codepen
 ```
 
-Lastly, **create labels on GitHub**. You’ll use these labels in the future when making changes to the package.
+or
 
 ```bash
-npx auto create-labels
+yarn add https://github.com/elseloop/storybook-addon-codepen
+```
+Then, add the following to your `.storybook/main.js` file:
+
+```js
+export default {
+  addons: ['@elseloop/storybook-addon-codepen'],
+};
 ```
 
-If you check on GitHub, you’ll now see a set of labels that `auto` would like you to use. Use these to tag future pull requests.
+## Assumptions & Limitations
 
-#### GitHub Actions
+This addon was built for those times you would like to share the contents of a single story, either to seek help or to create a minimal use case, but are unable to share the full Storybook for whatever reason. Rather than copying and pasting somewhere else, the addon will pull the full story title, rendered HTML, and the contents of any defined `<style>` tags from your story and use them to prefill a new pen on Codepen.
 
-This template comes with GitHub actions already set up to publish your addon anytime someone pushes to your repository.
-
-Go to `Settings > Secrets`, click `New repository secret`, and add your `NPM_TOKEN`.
-
-### Creating a release
-
-To create a release locally you can run the following command, otherwise the GitHub action will make the release for you.
-
-```sh
-yarn release
-```
-
-That will:
-
-- Build and package the addon code
-- Bump the version
-- Push a release to GitHub and npm
-- Push a changelog to GitHub
+- Does not require a Codepen account to use.
+- Changing `args` passed to the story, either through the Controls panel, URL parameters, or other means, will be reflected correctly in the resulting pen provided they happen before opening the pen. (If they occur after, a new pen will need to be opened to see the changes.)
+- JavaScript is intentionally not included in what is sent to Codepen. Because Storybook supports so many tools that require large framework bundles when not minified (as they likely would be in development), and because JavaScript required for a single component might be spread among multiple bundles in the preview iframe, making it difficult to pick and choose effectively, this addon chooses to leave out the JavaScript when opening a pen. If your story requires interactive JavaScript, you will need to move it into the pen manually.
