@@ -1,3 +1,15 @@
+# v0.0.7 (Thu Feb 02 2023)
+
+#### ⚠️ Pushed to `main`
+
+- Updates install directions, now from npm ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v0.0.6 (Thu Feb 02 2023)
 
 #### ⚠️ Pushed to `main`
