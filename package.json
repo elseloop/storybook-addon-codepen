@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-codepen",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Add an 'Open Story in Codepen' button to the Storybook toolbar.",
   "keywords": [
     "Codepen",
