@@ -10,19 +10,19 @@ Open a pen on Codepen with the click of a button, pre-filled with your story’s
 In the root directory of your Storybook project, run either
 
 ```bash
-npm i -D https://github.com/elseloop/storybook-addon-codepen
+npm i -D storybook-addon-codepen
 ```
 
 or
 
 ```bash
-yarn add https://github.com/elseloop/storybook-addon-codepen
+yarn add storybook-addon-codepen
 ```
 Then, add the following to your `.storybook/main.js` file:
 
 ```js
 export default {
-  addons: ['@elseloop/storybook-addon-codepen'],
+  addons: ['storybook-addon-codepen'],
 };
 ```
 
