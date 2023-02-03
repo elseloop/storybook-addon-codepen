@@ -1,3 +1,31 @@
+# v0.0.4 (Thu Feb 02 2023)
+
+#### ⚠️ Pushed to `main`
+
+- 💩 Adds workaround for confusing yarn release login issues 🤷‍♂️ (dan@elseloop.com)
+- Updates react peerDependencies versions (dan@elseloop.com)
+- Fixes npm install code (dan@elseloop.com)
+- Updates README (dan@elseloop.com)
+- Bumps version back down (dan@elseloop.com)
+- Adds pointer-events: none to CP icon (dan@elseloop.com)
+- Adds toolbar button (dan@elseloop.com)
+- Adds withCodepen decorator (dan@elseloop.com)
+- Updates manager to needed pieces (dan@elseloop.com)
+- Updates preview to needed pieces (dan@elseloop.com)
+- Updates constants (dan@elseloop.com)
+- Adds Codepen Icon as JSX component (dan@elseloop.com)
+- updates to git ignores (dan@elseloop.com)
+- Initial package/deps setup (dan@elseloop.com)
+- Cleaning up (dan@elseloop.com)
+- project setup (dan@elseloop.com)
+- Initial commit (dan@elseloop.com)
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v0.0.3 (Thu Feb 02 2023)
 
 #### ⚠️ Pushed to `main`
