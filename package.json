@@ -38,7 +38,12 @@
     "build-storybook": "build-storybook",
     "prerelease": "zx scripts/prepublish-checks.mjs",
     "release": "yarn build && auto shipit",
-    "eject-ts": "zx scripts/eject-typescript.mjs"
+    "eject-ts": "zx scripts/eject-typescript.mjs",
+    "prebuildtoo": "npm run clean",
+    "buildtoo": "concurrently \"npm run buildbabeltoo\" \"npm run buildTsc\"",
+    "buildbabeltoo": "concurrently \"npm run buildBabel:cjs\" \"npm run buildBabel:esm\"",
+    "releasetoo": "npm run buildtoo && auto shipit",
+    "prereleasetoo": "zx scripts/prepublish-checks.mjs"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
